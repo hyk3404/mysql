@@ -32,7 +32,7 @@ class Connect(object):
         
         sql = "INSERT INTO {} ({}) VALUES ({})".format(self.table_name, col_name, quantity)#sql語法
 
-        for i in range(value_len):
+        for i in range(value_len+1):
             col_value = []
 
             for key in data_dic.keys():
