@@ -25,13 +25,14 @@ class Connect(object):
         for count, key in enumerate(data_dic.keys()):
             col_name += ','+str(key)
             quantity += ','+'%s'
-
+            value_len = len(data_dic[key])
+            
         col_name = col_name[1:]
         quantity = quantity[1:]
         
         sql = "INSERT INTO {} ({}) VALUES ({})".format(self.table_name, col_name, quantity)#sql語法
 
-        for i in range(count+1):
+        for i in range(value_len):
             col_value = []
 
             for key in data_dic.keys():
@@ -51,8 +52,8 @@ class Connect(object):
 #=========================以下為測試碼============================
 
 # if __name__ == "__main__":
-#     dic = {'name' : ['Github','Google'],'url' : ['https://www.github.com','https://www.google.com']}
-#     job = Connect('test') 設置欲使用的table
-#     job.insert_into_table(dic) 字典存入table
+#     dic = {'name' : ['Github','Google','3'],'url' : ['https://www.github.com','https://www.google.com','']}
+#     job = Connect('test') #設置欲使用的table
+#     job.insert_into_table(dic) #字典存入
     
     
